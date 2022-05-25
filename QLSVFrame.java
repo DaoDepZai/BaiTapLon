@@ -31,7 +31,7 @@ public class QLSVFrame extends javax.swing.JFrame {
         initComponents();
          model = (DefaultTableModel) jTable1.getModel();
          d = new Data();
-        //d.loadData();
+        //load dữ liệu từ file
          d.loadData();
             for (SinhVien sv : Data.dsSV) {
             Vector vec = new Vector();
@@ -43,10 +43,12 @@ public class QLSVFrame extends javax.swing.JFrame {
             vec.add(sv.getDiemTK());
             model.addRow(vec);
         }
+        //thiết lập tiêu đề cho list
         this.setTitle("Chuong trinh quan ly sinh vien");
         this.setLocationRelativeTo(null);
         
     }
+    //lưu dữ liệu từ list vào file
     public void SaveData(){
         FileWriter fw = null;
         BufferedWriter bw = null;
@@ -72,6 +74,7 @@ public class QLSVFrame extends javax.swing.JFrame {
             }
         } 
     }
+    //in dữ liệu từ file ra list
     public void showData(){
       
         SinhVien sv = Data.dsSV.get(Data.dsSV.size() - 1);
