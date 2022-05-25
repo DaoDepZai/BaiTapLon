@@ -23,10 +23,12 @@ public class Data {
         FileReader fr = null;
         BufferedReader br = null;
         try {
+            //Khởi tạo filereader và buffereader mới
             fr = new FileReader("src\\data.txt");
             br = new BufferedReader(fr);
             String line;
-            while ((line = br.readLine()) != null) {                
+            while ((line = br.readLine()) != null) {   
+                 //load dữ liệu ở trong file 
                 String []path = line.split(",");
                 String maSv= path[0];
                 String tenSV = path[1];
@@ -34,6 +36,7 @@ public class Data {
                 String email = path[3];
                 int sodt = Integer.parseInt(path[4]);
                 double diem = Double.parseDouble(path[5]);
+               //đẩy dữ liệu vào list
                 SinhVien sv = new SinhVien(maSv, tenSV, diaChi, email, sodt, diem);
                 dsSV.add(sv);
             }
